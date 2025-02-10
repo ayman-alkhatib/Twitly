@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS twitly_db;
+CREATE DATABASE IF NOT EXISTS twitly_db;
 
 USE twitly_db;
 
@@ -24,7 +24,7 @@ CREATE TABLE comments (
     content TEXT NOT NULL,
     created_it TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (tweet_id) REFERENCES tweets(id) ON DELETE CASCADE,
+    FOREIGN KEY (tweet_id) REFERENCES tweets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE likes (
@@ -33,7 +33,7 @@ CREATE TABLE likes (
      created_it TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
      PRIMARY KEY (user_id,tweet_id),
      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-     FOREIGN KEY (tweet_id) REFERENCES tweets(id) ON DELETE CASCADE,
+     FOREIGN KEY (tweet_id) REFERENCES tweets(id) ON DELETE CASCADE
 );
 
 CREATE TABLE followers (
@@ -42,7 +42,7 @@ CREATE TABLE followers (
       created_it TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       PRIMARY KEY (follower_id,following_id),
       FOREIGN KEY (follower_id) REFERENCES users(id) ON DELETE CASCADE,
-      FOREIGN KEY (following_id) REFERENCES users(id) ON DELETE CASCADE,
+      FOREIGN KEY (following_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 
